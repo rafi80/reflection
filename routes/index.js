@@ -23,7 +23,7 @@ router.post("/register", function(req,res) {
         }
         passport.authenticate("local")(req, res, function(){
             req.flash("success", "Welcome to YelpCamp " + user.username);
-            res.redirect("/match");
+            res.redirect("/main");
         })
     });
 });
@@ -36,7 +36,7 @@ router.get("/login", function(req,res) {
 //handling login logic
 router.post("/login", passport.authenticate("local",
     {
-        successRedirect: "/match",
+        successRedirect: "/main",
         failureRedirect: "/login",
         failureFlash: true,
         successFlash: "Welcome!"
